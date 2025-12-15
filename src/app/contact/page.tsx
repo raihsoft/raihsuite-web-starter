@@ -43,9 +43,10 @@ export default function ContactPage() {
       }
       setStatus('success');
       form.reset();
-    } catch (e: any) {
+    } catch (e: unknown) {
       setStatus('error');
-      setErrorMessage(e.message || 'Network error');
+      const message = e instanceof Error ? e.message : 'Network error';
+      setErrorMessage(message);
     }
   }
 

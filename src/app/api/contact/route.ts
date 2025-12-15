@@ -11,7 +11,7 @@ const ContactSchema = z.object({
   message: z.string().min(10).max(5000)
 });
 
-async function verifyTurnstile(_token: string | undefined): Promise<boolean> {
+async function verifyTurnstile(): Promise<boolean> {
   return true;
 }
 
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
   }
 
-  const captchaOk = await verifyTurnstile(undefined);
+  const captchaOk = await verifyTurnstile();
   if (!captchaOk) {
     return NextResponse.json({ error: 'Captcha failed' }, { status: 403 });
   }

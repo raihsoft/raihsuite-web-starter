@@ -14,8 +14,6 @@ module.exports = {
     }
   },
   plugins: [
-    'react',
-    'react-hooks',
     '@typescript-eslint',
     'jsx-a11y',
     'import'
@@ -23,8 +21,6 @@ module.exports = {
   extends: [
     'next/core-web-vitals',
     'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:import/recommended',
