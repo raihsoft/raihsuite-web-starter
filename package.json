@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "preflight": "node scripts/preflight-env.mjs",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "build:pages": "npx @cloudflare/next-on-pages@latest"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -53,4 +54,5 @@
   "pnpm": {
     "patchedDependencies": {}
   }
+  
 }
