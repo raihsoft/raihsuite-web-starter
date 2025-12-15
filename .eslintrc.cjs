@@ -21,6 +21,7 @@ module.exports = {
     'import'
   ],
   extends: [
+    'next/core-web-vitals',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',

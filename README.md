@@ -96,6 +96,38 @@ Possible approach:
 - Ensure environment variables set in Cloudflare dashboard.
 - Use branch protections with GitHub Actions (optional) before allowing deployments.
 
+### Cloudflare Pages Setup
+
+- Build command: `npx @cloudflare/next-on-pages@latest`
+- Output directory: `.vercel/output/static`
+- Root directory: `/`
+- Build system version: `3 (latest)`
+- Node compatibility: enable `nodejs_compat` (via Pages UI) or add `wrangler.toml`:
+
+```toml
+name = "raihsuite-web-starter"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+```
+
+Environment variables (Production):
+- `TENANT_ID`
+- `RAISUITE_API_BASE`
+- `RAISUITE_API_KEY`
+- `TURNSTILE_SECRET` (optional)
+
+Local parity:
+```bash
+pnpm install --frozen-lockfile
+node scripts/preflight-env.mjs
+pnpm build:pages
+```
+
+Redeploy checklist:
+- Ensure output dir is `.vercel/output/static` (no leading slash)
+- Add required environment variables in Pages → Settings → Environment variables
+- Trigger a new deploy
+
 ## Rate Limiting & Security Notes
 
 Current rate limiting is **not production-safe** (in-memory). Replace with:

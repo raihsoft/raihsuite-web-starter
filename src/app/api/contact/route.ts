@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod';
 import { rateLimitCheck } from '@/lib/rateLimit';
 import { getEnv } from '@/lib/env';
 import { NextResponse } from 'next/server';
